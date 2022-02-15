@@ -4,6 +4,8 @@ using libIinBin.Exception;
 using libIinBin.Model;
 using libIinBin.Parser;
 
+[assembly: System.Runtime.CompilerServices.InternalsVisibleTo
+    ("LibIinBin.Tests")]
 namespace libIinBin
 {
     public static class IinBinParser
@@ -23,8 +25,6 @@ namespace libIinBin
                    $"Param {nameof(iinOrBin)} must be 12 chars long and only contains digits");
 
            var personOrOrganizationFlag = (byte)Char.GetNumericValue(iinOrBin, PersonOrOrganizationFlagIndex);
-
-          
 
            BaseIdentifierInformation identifierInformation;
            IdentifierType identifierType = IdentifierType.Bin;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using libIinBin.Exception;
 using libIinBin.Model;
 
 namespace libIinBin.Parser
@@ -18,6 +19,9 @@ namespace libIinBin.Parser
             result.BirthDate = DateTime.ParseExact(dtStr, IinRegistrationDateFormat, CultureInfo.CurrentCulture);
 
             var sexValue = (byte)char.GetNumericValue(identifier, PersonSexIndex);
+
+            if (sexValue > 6)
+                throw new InvalidIdentifierException($"Error at index - {PersonSexIndex}. Value can not be greater than 6");
 
             if (sexValue != 1 && sexValue % 2 == 0)
                 result.Sex = Sex.Female;
