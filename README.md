@@ -27,7 +27,7 @@ IdentifierValidationResult validationResult = IinBinParser.Validate(iin);
 ### Для БИН
 ```csharp
 string bin = "020540003431";
-IdentifierValidationResult validationResult = IinBinParser.Validate(iin);
+IdentifierValidationResult validationResult = IinBinParser.Validate(bin);
 //Аналогично примеру выше
 //validationResult.BinInformation - только подробная информация о БИН хранится в другом объекте
 ```
